@@ -1,0 +1,293 @@
+/* --- public/css/style.css --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================
+   1. BASE STYLES (Dark Mode Maroon)
+   ========================================= */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0f070b;
+    color: #f3e8ee;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   2. LOGO STYLING
+   ========================================= */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon-box {
+    background-color: #800020 !important;
+    padding: 0.625rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.4);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #f3e8ee !important;
+    letter-spacing: -0.05em;
+    line-height: 1;
+}
+
+.logo-text-highlight {
+    color: #a31d36 !important;
+}
+
+.logo-slogan {
+    font-size: 10px;
+    font-weight: 700;
+    color: #b397a5;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+/* =========================================
+   3. UI COMPONENTS (Cards, Tables, Inputs)
+   ========================================= */
+.glass-card {
+    background: rgba(28, 12, 22, 0.85);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(128, 0, 32, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(128, 0, 32, 0.2);
+    border-radius: 32px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.proposal-row:hover,
+.archive-row:hover {
+    background-color: #190a12 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px -5px rgba(128, 0, 32, 0.25);
+}
+
+.custom-input {
+    transition: all 0.3s ease;
+    border: 1.5px solid rgba(128, 0, 32, 0.3);
+    background-color: #190a12;
+    color: #f3e8ee;
+    outline: none !important;
+}
+
+.custom-input:focus {
+    background-color: #190a12;
+    border-color: #800020 !important;
+    box-shadow: 0 0 0 4px rgba(128, 0, 32, 0.3) !important;
+}
+
+.badge-verified {
+    background-color: rgba(128, 0, 32, 0.2) !important;
+    color: #f3e8ee !important;
+    border: 1px solid rgba(128, 0, 32, 0.4) !important;
+    padding: 0.4rem 1.25rem;
+    border-radius: 0.85rem;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* =========================================
+   4. NAVIGATION & INTERACTION
+   ========================================= */
+nav a:active {
+    transform: scale(0.92);
+}
+
+nav a:not(.bg-white) {
+    position: relative;
+}
+
+nav a:not(.bg-white)::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #800020;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+nav a:not(.bg-white):hover::after {
+    width: 20px;
+}
+
+/* =========================================
+   5. ANIMATIONS
+   ========================================= */
+.gradient-bg {
+    background: linear-gradient(-45deg, #4a0013, #800020, #a31d36, #4a0013) !important;
+    background-size: 400% 400% !important;
+    animation: gradientAnimation 12s ease infinite;
+    border: none !important;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.page-transition {
+    animation: fadeInPage 0.4s ease-out;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   6. VENDOR OVERRIDES (SweetAlert & Tailwind)
+   ========================================= */
+.swal2-popup {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    padding: 2rem !important;
+    border-radius: 2rem !important;
+    background: #1c0c16 !important;
+    color: #f3e8ee !important;
+    border: 1px solid rgba(128, 0, 32, 0.3) !important;
+}
+
+.swal2-title {
+    letter-spacing: -0.02em !important;
+    font-weight: 800 !important;
+    color: #f3e8ee !important;
+}
+
+/* Paksa warna Tailwind agar konsisten Dark Mode Maroon */
+.text-indigo-600, .text-blue-600 { color: #a31d36 !important; }
+.bg-indigo-600, .bg-blue-600 { background-color: #800020 !important; }
+
+/* =========================================
+   7. DASHBOARD & DIVISION SYSTEM
+   ========================================= */
+
+.manager-sidebar {
+    background: rgba(28, 12, 22, 0.8) !important;
+}
+
+.staff-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(128, 0, 32, 0.2);
+}
+
+.staff-item:last-child {
+    border-bottom: none;
+}
+
+.badge-position {
+    font-size: 9px;
+    background-color: rgba(128, 0, 32, 0.2);
+    color: #f3e8ee;
+    border: 1px solid rgba(128, 0, 32, 0.3);
+    padding: 2px 10px;
+    border-radius: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.select-division {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background-color: #190a12;
+    color: #f3e8ee;
+    border: 1.5px solid rgba(128, 0, 32, 0.3);
+    width: 100%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.select-division option {
+    background-color: #1c0c16;
+    color: #f3e8ee;
+}
+
+.select-division:focus {
+    background-color: #190a12;
+    border-color: #800020;
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.3);
+}
+
+.btn-save-position {
+    padding: 10px;
+    background-color: rgba(128, 0, 32, 0.2);
+    color: #f3e8ee;
+    border: 1px solid rgba(128, 0, 32, 0.3);
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-save-position:hover {
+    background-color: #800020;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 6rem;
+    z-index: 40;
+}
+
+/* =========================================
+   8. DIVISION NAVIGATION SIDEBAR
+   ========================================= */
+.division-nav-item {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.division-nav-item:hover {
+    transform: translateX(4px);
+}
+
+.division-nav-item:active {
+    transform: scale(0.98);
+}
+
+/* Smooth fade-in for sidebar elements */
+.fade-in {
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for division items */
+.division-nav-item:nth-child(1) { animation-delay: 0.05s; }
+.division-nav-item:nth-child(2) { animation-delay: 0.1s; }
+.division-nav-item:nth-child(3) { animation-delay: 0.15s; }
+.division-nav-item:nth-child(4) { animation-delay: 0.2s; }
+.division-nav-item:nth-child(5) { animation-delay: 0.25s; }
+.division-nav-item:nth-child(6) { animation-delay: 0.3s; }
+.division-nav-item:nth-child(7) { animation-delay: 0.35s; }
+.division-nav-item:nth-child(8) { animation-delay: 0.4s; }
+
+
